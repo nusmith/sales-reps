@@ -10,6 +10,7 @@ q = 3
 # Determine the rep_experience for each rep at the start of each quarter
 #
 #
+rep_experience = c()
 
 # Ramp functions
 ramp_lin = function(reps){

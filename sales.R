@@ -7,7 +7,6 @@ reps = c(1, 2, 3, 4, 5, 6, 7)
 # Quarters required to be "fully ramped"
 q = 3
 
-
 # Ramp functions
 ramp_lin = function(reps){
   output = rep(0, length(reps))

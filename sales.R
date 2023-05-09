@@ -1,11 +1,15 @@
 # Inputs
-
 # Quota per representative lalala
 quota_per_rep = 1000
 # Vector containing number of representatives at the start of the quarter over time
 reps = c(1, 2, 3, 4, 5, 6, 7)
 # Quarters required to be "fully ramped"
 q = 3
+
+
+# Determine the rep_experience for each rep at the start of each quarter
+#
+#
 
 # Ramp functions
 ramp_lin = function(reps){
@@ -26,6 +30,7 @@ ramp_exp = function(reps){
   }
   output
 }
+
 # Use ramp function to determine quota multiplier for each rep. (their "value")
 reps_value_lin = ramp_lin(rep_experience)
 plot(rep_experience, ramp_lin(rep_experience), main = "Rep. Ramp-- Lin", type="b", pch=16, lty=1, 
@@ -35,18 +40,9 @@ plot(rep_experience, ramp_exp(rep_experience), main = "Rep. Ramp-- Exp", type="b
      xlab="Qs of experience", ylab = "Sales Representative Value")
 
 
-
 # Revenue is a product of sales rep. value and quota per full rep., sum for all reps.
 # Choose ramp function
-revenue = function(reps, ramp_fun, quota){
-  for (q in 1:length(reps)){
-    rep_info = rep(NA, reps[q])
-    for (rep in 1:reps[q]){
-      
-    }
-    
-    
-  }
+revenue = function(rep_experience, ramp_fun, quota){
   sum(quota * ramp_fun(rep_exp))
 }
 revenue(rep_experience, ramp_exp, quota_per_rep)
